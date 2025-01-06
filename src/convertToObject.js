@@ -11,6 +11,11 @@ function convertToObject(sourceString) {
 
   parts.forEach((part) => {
     const indexPosition = part.indexOf(':');
+
+    if (indexPosition === -1) {
+      return;
+    }
+
     const key = part.slice(0, indexPosition).trim();
     const value = part.slice(indexPosition + 1).trim();
 
@@ -21,4 +26,5 @@ function convertToObject(sourceString) {
 
   return result;
 }
+
 module.exports = convertToObject;
